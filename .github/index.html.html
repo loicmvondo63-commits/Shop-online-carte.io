@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>ONLINE SHOP | Ressources Numériques Innovantes</title>
+    <meta name="description" content="Découvrez nos ressources numériques innovantes. Acquisition rapide, efficace, succès garanti."/>
+    <meta name="author" content="Exposition Démo"/>
+    <meta name="keywords" content="e-commerce, produits, démo, exposition, ressources numériques, flashcards"/>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c9QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+        /* ================================== */
+        /* VARIABLES & GLOBAL STYLES          */
+        /* ================================== */
+        :root {
+            /* Couleurs dominantes de l'image */
+            --color-black-deep: #000000; 
+            --color-dark-surface: #0a0a0a;
+            --color-bg-light: #181818;
+            --color-neon-cyan: #00f0ff; /* Bleu-Cyan éclatant */
+            --color-neon-magenta: #ff00ff; /* Rose-Magenta éclatant */
+            --color-neon-violet: #8c00ff; /* Violet profond */
+            --color-soft-gray: #555555;
+            --color-light-gray: #dddddd;
+            
+            /* Couleurs pour les paiements sociaux */
+            --color-whatsapp: #25d366;
+            --color-instagram: #c13584; 
+            --color-telegram: #0088cc;
+            --color-snapchat: #fffc00;
+            --color-neon-red: #ff004c; /* Rouge vif pour supprimer */
+        }
+        
+        html { 
+            scroll-behavior: smooth; 
+        }
+
+        body {
+            background-color: var(--color-black-deep);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+            background-image: radial-gradient(circle, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 90%, rgba(0, 0, 0, 0.1) 100%),
+                              linear-gradient(rgba(0, 240, 255, 0.05), rgba(140, 0, 255, 0.05));
+        }
+        .container { 
+            max-width: 1280px; 
+            margin: 0 auto; 
+            padding: 0 1.5rem; 
+        }
+
+        /* Styles spécifiques pour le formulaire de connexion (login) */
+        #login-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #login-card {
+            background-color: var(--color-dark-surface);
+            border: 2px solid var(--color-neon-violet);
+            box-shadow: 0 0 25px rgba(140, 0, 255, 0.7);
+            max-width: 450px;
+        }
+        .login-input {
+            background-color: var(--color-black-deep);
+            color: white;
+            border: 1px solid var(--color-soft-gray);
+            padding: 0.75rem;
+            border-radius: 8px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .login-input:focus {
+            outline: none;
+            border-color: var(--color-neon-cyan);
+            box-shadow: 0 0 5px var(--color-neon-cyan);
+        }
+
+        /* ================================== */
+        /* TYPOGRAPHIE & EFFETS VISUELS       */
+        /* ================================== */
+        .bg-clip-text {
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .gradient-text {
+            background-image: linear-gradient(to right, var(--color-neon-cyan), var(--color-neon-violet), var(--color-neon-magenta));
+        }
+        .neon-glow-title {
+            text-shadow: 0 0 15px var(--color-neon-cyan), 0 0 30px var(--color-neon-violet);
+        }
+
+        /* BOUTON D'APPEL À L'ACTION PRINCIPAL (CTA) */
+        .cta-button {
+            /* Dégradé de fond */
+            background-image: linear-gradient(to right, var(--color-neon-cyan) 0%, var(--color-neon-violet) 100%);
+            color: var(--color-black-deep); /* Texte noir sur fond néon */
+            text-shadow: none;
+            border: none;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.6); /* Lumière initiale */
+            font-weight: 700;
+        }
+
+        .cta-button:hover {
+            /* Effet de zoom et de changement de lueur au survol */
+            transform: scale(1.05) translateY(-2px);
+            background-image: linear-gradient(to right, var(--color-neon-magenta) 0%, var(--color-neon-cyan) 100%);
+            box-shadow: 0 0 25px var(--color-neon-magenta), 0 0 50px var(--color-neon-violet); /* Lueur plus intense */
+        }
+        
+        /* Style du bouton de déconnexion */
+        .logout-button {
+            background-color: var(--color-neon-red);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+            margin-left: 1rem;
+            box-shadow: 0 0 10px rgba(255, 0, 76, 0.5);
+        }
+        .logout-button:hover {
+            background-color: #d1003d;
+            transform: scale(1.05);
+        }
+
+        /* Styles des produits et cartes de témoignages */
+        .card { 
+            background-color: var(--color-bg-light); 
+            border: 1px solid var(--color-soft-gray);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+        .card-cyan { border-color: var(--color-neon-cyan); }
+        .card-purple { border-color: var(--color-neon-violet); }
+        .card-pink { border-color: var(--color-neon-magenta); }
+
+        .feature-card-content { 
+            padding: 1.5rem; 
+            border-radius: 12px;
+            border-width: 2px;
+        }
+        .feature-card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+            margin-left: 0.5rem;
+        }
+        .feature-card-icon {
+            font-size: 1.5rem;
+        }
+        .feature-card-desc {
+            color: var(--color-light-gray);
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--color-bg-light);
+            border-width: 2px;
+            border-radius: 12px;
+        }
+        .testimonial-p1 { border-color: var(--color-neon-cyan); }
+        .testimonial-p2 { border-color: var(--color-neon-violet); }
+        .testimonial-p3 { border-color: var(--color-neon-magenta); }
+        .testimonial-p4 { border-color: var(--color-neon-cyan); }
+        .quote-icon {
+            font-size: 3rem;
+            color: var(--color-neon-cyan);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        .testimonial-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 0.75rem;
+            border: 3px solid var(--color-neon-violet);
+        }
+
+        /* Styles du Panier et Boutons */
+        .product-actions { margin-top: 1rem; }
+        .btn-action {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .btn-add {
+            background-color: var(--color-neon-cyan);
+            color: var(--color-black-deep);
+        }
+        .btn-add:hover {
+            background-color: #00c3d1;
+            transform: translateY(-1px);
+        }
+        .btn-remove {
+            background-color: var(--color-soft-gray);
+            color: white;
+        }
+        .btn-remove:hover {
+            background-color: #777;
+            transform: translateY(-1px);
+        }
+
+        .cart-container { 
+            position: relative; 
+            margin-left: 1.5rem; 
+            display: flex; /* Utilisé dans JS pour afficher/cacher */
+        }
+        .cart-icon {
+            font-size: 2rem;
+            color: var(--color-neon-magenta);
+            text-decoration: none;
+            position: relative;
+            padding: 0 0.5rem;
+        }
+        .cart-counter {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: var(--color-neon-red);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: bold;
+            border-radius: 50%;
+            padding: 0.25rem 0.5rem;
+            line-height: 1;
+        }
+
+        /* Styles du paiement social */
+        .social-checkout-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .social-button {
+            display: flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-decoration: none;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+            min-width: 200px;
+            justify-content: center;
+        }
+        .social-button:hover {
+            transform: translateY(-3px);
+        }
+        .social-icon {
+            font-size: 1.5rem;
+            margin-right: 0.75rem;
+        }
+        .whatsapp { background-color: var(--color-whatsapp); }
+        .whatsapp:hover { box-shadow: 0 0 20px var(--color-whatsapp); }
+        .telegram { background-color: var(--color-telegram); }
+        .telegram:hover { box-shadow: 0 0 20px var(--color-telegram); }
+        .instagram { background-image: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .instagram:hover { box-shadow: 0 0 20px #cc2366; }
+        .snapchat { 
+            background-color: var(--color-snapchat); 
+            color: var(--color-black-deep);
+        }
+        .snapchat:hover { box-shadow: 0 0 20px var(--color-snapchat); }
+
+
+        /* Styles de la zone de lien direct (post-achat) */
+        .direct-access-card {
+            background-color: rgba(140, 0, 255, 0.1);
+            border: 2px dashed var(--color-neon-violet);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+        .direct-access-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            margin: 0.75rem 0;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-decoration: none;
+            color: white;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .direct-access-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+        .direct-access-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+
+        /* ================================== */
+        /* DASHBOARD ADMIN & STATS            */
+        /* ================================== */
+        .admin-stat-card {
+            background-color: var(--color-bg-light);
+            border: 2px solid var(--color-neon-violet);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(140, 0, 255, 0.5);
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background-image: linear-gradient(to right, var(--color-neon-cyan), var(--color-neon-magenta));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .stat-label {
+            font-size: 1.25rem;
+            color: var(--color-light-gray);
+        }
+
+        /* Stats en temps réel (accueil) */
+        .real-time-box {
+            background-color: rgba(140, 0, 255, 0.1); 
+            border: 1px solid var(--color-neon-violet);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+        .real-time-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-neon-cyan);
+            margin-bottom: 0.25rem;
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+        }
+        .stats-card {
+            background-color: var(--color-bg-light);
+            border-radius: 10px;
+            padding: 1.5rem;
+            border: 1px solid var(--color-neon-cyan);
+        }
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--color-neon-magenta);
+            margin-bottom: 0.25rem;
+        }
+        .stats-label {
+            color: var(--color-light-gray);
+        }
+        
+        /* ================================== */
+        /* SECTIONS & ANIMATIONS              */
+        /* ================================== */
+        /* Masquer le contenu principal au démarrage */
+        .main-content, #admin-dashboard { opacity: 0; display: none; transition: opacity 0.5s ease-in; }
+        .content-visible { opacity: 1; display: block; }
+        .content-hidden { opacity: 0; display: none; }
+        
+    </style>
+</head>
+<body>
+    
+    <div id="login-overlay" class="z-50">
+        <div id="login-card" class="rounded-2xl p-8 text-center hidden-on-scroll">
+            <h2 class="text-3xl font-extrabold gradient-text bg-clip-text mb-6">Accès Boutique / Administration</h2>
+            
+            <form onsubmit="event.preventDefault(); handleAuth('login');" id="login-form">
+                <h3 class="text-xl text-white mb-4">Connexion</h3>
+                <div class="mb-4">
+                    <input type="text" id="auth-id" class="login-input w-full" placeholder="Identifiant ou Email" required>
+                </div>
+                <div class="mb-6">
+                    <input type="password" id="auth-password" class="login-input w-full" placeholder="Mot de passe" required>
+                </div>
+                
+                <div id="auth-message" class="mb-4 font-bold text-red-500" style="display: none;"></div>
+                
+                <button type="submit" class="cta-button w-full py-3 px-8 rounded-full">
+                    Se Connecter
+                </button>
+            </form>
+            
+            <p class="text-sm text-gray-500 mt-6">
+                Nouveau client ? 
+                <button onclick="handleAuth('signup')" class="text-neon-cyan font-bold hover:text-white transition duration-200">
+                    Créer un compte Client
+                </button>
+            </p>
+
+            <div id="auth-success" class="mt-8 p-4 border rounded-lg font-bold" style="display: none;">
+                <p id="auth-success-message" class="text-lg"></p>
+                <p class="text-sm mt-2">Redirection...</p>
+            </div>
+            
+            <p class="text-xs text-gray-600 mt-6">
+                (Simulation de démo. Identifiants masqués dans les champs.)
+            </p>
+        </div>
+    </div>
+    
+    <nav id="app-nav" class="fixed top-0 left-0 right-0 z-40 bg-black bg-opacity-90 backdrop-blur-sm content-hidden">
+        <div class="container h-16 flex justify-between items-center">
+            <div class="flex-shrink-0">
+                <h1 class="text-xl font-bold gradient-text bg-clip-text">ONLINE SHOP</h1>
+            </div>
+            
+            <div class="flex items-center">
+                <div id="nav-menu" class="hidden md:flex items-center">
+                    <a href="#home" onclick="showMainContent(); return false;" id="shop-nav-link" class="text-white hover:text-cyan-400 transition duration-300 px-3 py-2 rounded-md font-medium" style="display: none;">
+                        <i class="fas fa-store"></i> Accès Boutique
+                    </a>
+                </div>
+                
+                <div class="cart-container" id="cart-nav-link" style="display: none;">
+                    <a href="#cta-order" aria-label="Panier d'achat" class="cart-icon">
+                        ✦
+                        <span id="cart-counter" class="cart-counter">0</span>
+                    </a>
+                </div>
+
+                <button onclick="logout()" class="logout-button flex items-center gap-2">
+                    <i class="fas fa-sign-out-alt"></i> Déconnexion
+                </button>
+                
+                <button class="menu-toggle" aria-label="Toggle navigation" id="menu-toggle" style="display: none;">
+                    ☰
+                </button>
+            </div>
+        </div>
+    </nav>
+
+
+    <section id="admin-dashboard" class="min-h-screen pt-24 content-hidden">
+        <div class="container">
+            <h2 class="text-5xl font-extrabold mb-8 neon-glow-title gradient-text bg-clip-text">Tableau de Bord Administrateur</h2>
+            <p class="text-xl text-gray-400 mb-12">Bienvenue, JLOOK2000. Gestion des données simulées de la boutique.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                
+                <div class="admin-stat-card">
+                    <p class="stat-number" id="stat-visits">25 800</p>
+                    <p class="stat-label">Visites totales simulées</p>
+                </div>
+                
+                <div class="admin-stat-card">
+                    <p class="stat-number" id="stat-orders">185</p>
+                    <p class="stat-label">Commandes validées</p>
+                </div>
+                
+                <div class="admin-stat-card">
+                    <p class="stat-number" id="stat-revenue">11 250 €</p>
+                    <p class="stat-label">Revenus simulés (EUR)</p>
+                </div>
+
+            </div>
+
+            <h3 class="text-3xl font-bold mb-6 text-cyan-400 mt-12">Activité en Temps Réel ⏱️</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                
+                <div class="admin-stat-card border-neon-cyan">
+                    <h4 class="text-2xl font-bold mb-4 text-white">Utilisateurs Connectés</h4>
+                    <p class="stat-number text-cyan-400" id="admin-active-users">0</p>
+                    <p class="stat-label">Visiteurs actifs sur le site</p>
+                </div>
+
+                <div class="admin-stat-card border-neon-magenta">
+                    <h4 class="text-2xl font-bold mb-4 text-white">Conversions Sociales (Simulation)</h4>
+                    <div class="text-left text-lg text-gray-300">
+                        <p class="mb-2"><i class="fab fa-whatsapp text-whatsapp"></i> WhatsApp : <span id="admin-whatsapp-joins" class="float-right font-bold text-lg">0</span></p>
+                        <p class="mb-2"><i class="fab fa-telegram-plane text-telegram"></i> Telegram : <span id="admin-telegram-joins" class="float-right font-bold text-lg">0</span></p>
+                        <p class="mb-2"><i class="fab fa-instagram text-instagram"></i> Instagram : <span id="admin-instagram-joins" class="float-right font-bold text-lg">0</span></p>
+                        <p class="mb-2"><i class="fab fa-snapchat-ghost text-snapchat"></i> Snapchat : <span id="admin-snapchat-joins" class="float-right font-bold text-lg">0</span></p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="mt-12 text-center">
+                <button onclick="showMainContent()" class="text-xl text-neon-cyan font-bold hover:text-white transition duration-300">
+                    ← Retourner à la page d'Accueil de la Boutique
+                </button>
+            </div>
+
+        </div>
+    </section>
+    
+    
+    <main class="min-h-screen main-content content-hidden" id="main-content">
+        
+        <section id="home">
+            <header class="min-h-screen flex items-center justify-center pt-24">
+                <div class="text-center container" style="max-width: 900px;">
+                    <div class="slide-in-animation">
+                        
+                        <h1 class="text-7xl font-extrabold mb-6 leading-tight">
+                            <span class="neon-glow-title gradient-text bg-clip-text">ONLINE SHOP</span>
+                        </h1>
+                        <h2 class="text-4xl text-white font-bold mb-8">
+                            Des Ressources Numériques à Portée de Main
+                        </h2>
+                        
+                        <p class="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
+                            Ce sont des outils numériques exclusifs que peu de personnes connaissent. Ils permettent d'accéder à des ressources et des informations premium en toute simplicité.
+                        </p>
+                        
+                        <div class="real-time-box hidden-on-scroll">
+                            <h3 class="text-lg font-bold text-cyan-400 uppercase tracking-widest mb-2">Activité en direct</h3>
+                            <div class="flex justify-center gap-8 items-baseline">
+                                <div class="w-1/2">
+                                    <p class="real-time-number"><i class="fas fa-users"></i> <span id="client-active-users">0</span></p>
+                                    <p class="text-sm text-gray-400">Personnes connectées</p>
+                                </div>
+                                <div class="w-1/2">
+                                    <p class="real-time-number"><i class="fas fa-handshake"></i> <span id="client-social-joins">0</span></p>
+                                    <p class="text-sm text-gray-400">Nouveaux membres communautés</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#gallery" class="cta-button inline-flex items-center gap-3 py-3 px-8 rounded-full font-bold text-lg mt-10">
+                            Voir le Catalogue Maintenant
+                        </a>
+
+                        <div class="mt-24 grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+                            
+                            <div class="card rounded-xl hidden-on-scroll card-cyan feature-card-content">
+                                <div class="flex items-center justify-center mb-1">
+                                    <div class="feature-card-icon text-cyan-400">⚡</div>
+                                    <h3 class="feature-card-title">Accès Instantané</h3>
+                                </div>
+                                <p class="feature-card-desc">Contenu livré instantanément après achat.</p>
+                            </div>
+
+                            <div class="card rounded-xl hidden-on-scroll card-purple feature-card-content">
+                                <div class="flex items-center justify-center mb-1">
+                                    <div class="feature-card-icon text-purple-400">🧠</div>
+                                    <h3 class="feature-card-title">Méthode Optimale</h3>
+                                </div>
+                                <p class="feature-card-desc">Système de répétition espacée.</p>
+                            </div>
+
+                            <div class="card rounded-xl hidden-on-scroll card-pink feature-card-content">
+                                <div class="flex items-center justify-center mb-1">
+                                    <div class="feature-card-icon text-pink-400">🎯</div>
+                                    <h3 class="feature-card-title">Succès Garanti</h3>
+                                </div>
+                                <p class="feature-card-desc">Satisfaction de nos utilisateurs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </section>
+        
+        <section id="gallery" class="py-20" style="background-color: var(--color-dark-surface);">
+            <div class="container">
+                <div class="text-center mb-16 hidden-on-scroll">
+                    <h2 class="text-4xl font-bold mb-6 gradient-text bg-clip-text">Explorez nos Packs de Flashcards</h2>
+                    <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                        Boostez votre carrière ou vos études avec nos packs de formation numériques !
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="card rounded-2xl p-6 flex flex-col justify-between hidden-on-scroll card-cyan">
+                        <h3 class="text-2xl font-bold text-cyan-400 mb-4">Pack Essentiel</h3>
+                        <p class="text-gray-300 text-lg mb-6">1000 cartes de vocabulaire pour les fondamentaux. Accès 45 jours à la plateforme de révision.</p>
+                        <div class="mt-auto">
+                            <p class="text-3xl font-extrabold text-white mb-4">30 €</p>
+                            <div class="product-actions">
+                                <button onclick="addToCart('P1', 'Pack Essentiel', 30)" class="btn-action btn-add">Ajouter au Panier</button>
+                                <button onclick="removeFromCart('P1')" class="btn-action btn-remove">Retirer</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card rounded-2xl p-6 flex flex-col justify-between hidden-on-scroll card-purple" style="transition-delay: 0.1s;">
+                        <h3 class="text-2xl font-bold text-purple-400 mb-4">Pack Pro</h3>
+                        <p class="text-gray-300 text-lg mb-6">2500 cartes de concepts avancés et cas pratiques. Accès 90 jours.</p>
+                        <div class="mt-auto">
+                            <p class="text-3xl font-extrabold text-white mb-4">60 €</p>
+                            <div class="product-actions">
+                                <button onclick="addToCart('P2', 'Pack Pro', 60)" class="btn-action btn-add" style="background-color: var(--color-neon-violet); border-color: var(--color-neon-violet); box-shadow: 0 0 10px rgba(140, 0, 255, 0.5);">Ajouter au Panier</button>
+                                <button onclick="removeFromCart('P2')" class="btn-action btn-remove">Retirer</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card rounded-2xl p-6 flex flex-col justify-between hidden-on-scroll card-pink" style="transition-delay: 0.2s;">
+                        <h3 class="text-2xl font-bold text-pink-400 mb-4">Pack Illimité</h3>
+                        <p class="text-gray-300 text-lg mb-6">Accès à toutes les ressources flashcards actuelles et futures. **Accès à vie**.</p>
+                        <div class="mt-auto">
+                            <p class="text-3xl font-extrabold text-white mb-4">80 €</p>
+                            <div class="product-actions">
+                                <button onclick="addToCart('P3', 'Pack Illimité', 80)" class="btn-action btn-add" style="background-color: var(--color-neon-magenta); border-color: var(--color-neon-magenta); box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);">Ajouter au Panier</button>
+                                <button onclick="removeFromCart('P3')" class="btn-action btn-remove">Retirer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="testimonials" class="py-20">
+            <div class="container">
+                <div class="text-center mb-16 hidden-on-scroll">
+                    <h2 class="text-4xl font-bold mb-6 gradient-text bg-clip-text">Ce que disent nos Clients</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"> 
+                    
+                    <div class="card testimonial-card p-5 flex flex-col items-center text-center hidden-on-scroll testimonial-p1">
+                        <span class="quote-icon">“</span>
+                        <img src="https://i.imgur.com/G5g2mJ4.png" alt="Photo de Marie D." class="testimonial-image">
+                        <h4 class="font-bold text-cyan-400 text-xl mb-1">Marie D.</h4>
+                        <p class="text-sm text-gray-400 mb-3">Paris</p>
+                        <p class="italic text-base text-gray-300">"J'ai pu maîtriser les bases du codage en quelques semaines. La méthode est super efficace et facile à intégrer dans mon quotidien."</p>
+                    </div>
+
+                    <div class="card testimonial-card p-5 flex flex-col items-center text-center hidden-on-scroll testimonial-p2" style="transition-delay: 0.1s;">
+                        <span class="quote-icon">“</span>
+                        <img src="https://i.imgur.com/mY7Pz54.png" alt="Photo de Thomas M." class="testimonial-image">
+                        <h4 class="font-bold text-purple-400 text-xl mb-1">Thomas M.</h4>
+                        <p class="text-sm text-gray-400 mb-3">Belgique</p>
+                        <p class="italic text-base text-gray-300">"L'accès instantané est un vrai plus et le contenu est très pertinent pour la préparation aux examens de certification."</p>
+                    </div>
+
+                    <div class="card testimonial-card p-5 flex flex-col items-center text-center hidden-on-scroll testimonial-p3" style="transition-delay: 0.2s;">
+                        <span class="quote-icon">“</span>
+                        <img src="https://i.imgur.com/zW3Bv1U.png" alt="Photo de Sophie L." class="testimonial-image">
+                        <h4 class="font-bold text-pink-400 text-xl mb-1">Sophie L.</h4>
+                        <p class="text-sm text-gray-400 mb-3">Suisse</p>
+                        <p class="italic text-base text-gray-300">"Un excellent investissement dans mon avenir. J'ai économisé beaucoup de temps par rapport aux méthodes classiques."</p>
+                    </div>
+
+                    <div class="card testimonial-card p-5 flex flex-col items-center text-center hidden-on-scroll testimonial-p4" style="transition-delay: 0.3s;">
+                        <span class="quote-icon">“</span>
+                        <img src="https://i.imgur.com/G5g2mJ4.png" alt="Photo de Julie K." class="testimonial-image">
+                        <h4 class="font-bold text-cyan-400 text-xl mb-1">Julie K.</h4>
+                        <p class="text-sm text-gray-400 mb-3">Montréal</p>
+                        <p class="italic text-base text-gray-300">"J'ai eu une question après l'achat. Le support est réactif et m'a immédiatement guidé. C'est ça qui fait la vraie valeur d'un service !"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="key-stats" class="py-16" style="padding-top: 0;"> 
+            <div class="container text-center hidden-on-scroll">
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <div class="stats-card">
+                        <p class="stats-number">99%</p>
+                        <p class="stats-label">Taux de satisfaction</p>
+                    </div>
+                    
+                    <div class="stats-card">
+                        <p class="stats-number">10k+</p>
+                        <p class="stats-label">Personnes actives</p>
+                    </div>
+                    
+                    <div class="stats-card">
+                        <p class="stats-number">4.9/5</p>
+                        <p class="stats-label">Note moyenne</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        <section id="review-submission" class="py-10" style="padding-top: 0;">
+            <div class="container hidden-on-scroll">
+                   <div class="cta-section text-center p-8">
+                    <h3 class="text-3xl font-bold gradient-text bg-clip-text mb-4">Laissez votre Avis ✨</h3>
+                    <p class="text-gray-400 mb-6">Un achat effectué ? Partagez votre expérience et aidez les autres à réussir.</p>
+                    
+                    <div id="review-form-container">
+                        <div class="p-6 bg-black rounded-lg border border-neon-violet mx-auto" style="max-width: 600px;">
+                            <p class="text-xl text-cyan-400 font-bold mb-4">Fonctionnalité d'avis (Simulation)</p>
+                            <p class="text-gray-300">
+                                Le formulaire d'ajout d'avis ou de commentaire s'afficherait ici **après une commande effective** (validation côté serveur non implémentée).
+                            </p>
+                            <button class="cta-button mt-4 py-2 px-6" onclick="alert('Cette fonctionnalité nécessite une connexion à une base de données après validation de la commande.')">Simuler l'ouverture du formulaire</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="cta-order" class="py-20">
+            <div class="container text-center">
+                <div class="cta-section hidden-on-scroll">
+                    <h2 class="text-4xl font-extrabold mb-4">
+                        <span class="gradient-text bg-clip-text">Votre Panier d'Achat</span>
+                    </h2>
+                    
+                    <div id="cart-summary">
+                        <p class="empty-cart-message">Votre panier est vide. Ajoutez des packs pour commander !</p>
+                    </div>
+
+                    <div id="direct-access-links" class="direct-access-card hidden">
+                        <h3 class="text-2xl font-bold text-neon-cyan mb-4">Accès Direct Vendeur (Achat Validé) ✅</h3>
+                        <p class="text-gray-300 mb-4">Pour la livraison du produit ou toute question urgente, contactez-nous directement via :</p>
+
+                        <a href="https://wa.me/33744230417" target="_blank" class="direct-access-link whatsapp">
+                            <i class="direct-access-icon fab fa-whatsapp"></i> Contacter par WhatsApp
+                        </a>
+                        <a href="https://www.snapchat.com/add/lngoloko19?share_id=i6yyzYpgQP23C1fplVvmzQ&locale=fr_US" target="_blank" class="direct-access-link snapchat" style="color: black; background-color: var(--color-snapchat);">
+                            <i class="direct-access-icon fab fa-snapchat-ghost"></i> Ajouter sur Snapchat
+                        </a>
+                        <a href="https://t.me/VOTRE_USER_TELEGRAM" target="_blank" class="direct-access-link telegram">
+                            <i class="direct-access-icon fab fa-telegram-plane"></i> Contacter par Telegram
+                        </a>
+                    </div>
+                    <div id="checkout-options" style="display: none;">
+                        <h3 class="text-2xl font-bold mt-10 mb-6 text-white">Valider votre commande via :</h3>
+                        
+                        <div class="social-checkout-buttons">
+                            <a href="#" onclick="checkoutCart('whatsapp', '33744230417')" class="social-button whatsapp" title="Payer via WhatsApp">
+                                <i class="social-icon fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                            <a href="#" onclick="checkoutCart('telegram', 'VOTRE_USER_TELEGRAM')" class="social-button telegram" title="Payer via Telegram">
+                                <i class="social-icon fab fa-telegram-plane"></i> Telegram
+                            </a>
+                            <a href="#" onclick="checkoutCart('instagram', 'votre_compte_insta')" class="social-button instagram" title="Payer via Instagram">
+                                <i class="social-icon fab fa-instagram"></i> Instagram
+                            </a>
+                            <a href="#" onclick="checkoutCart('snapchat', 'lngoloko19')" class="social-button snapchat" title="Payer via Snapchat" style="color: black;">
+                                <i class="social-icon fab fa-snapchat-ghost"></i> Snapchat
+                            </a>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-4">Cliquer validera la commande et ouvrira la discussion avec le récapitulatif.</p>
+                    </div>
+
+                    <div class="mt-10 text-gray-400">
+                        <p class="font-bold text-lg mb-2">Paiement sécurisé · Accès immédiat</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer class="text-center py-10 text-gray-500 border-t" style="border-color: var(--color-soft-gray);">
+            <p>&copy; 2025 ONLINE SHOP - Tous droits réservés. Démonstration pour exposition.</p>
+        </footer>
+
+    </main>
+    <script>
+        // ===================================
+        // CONSTANTES ET PARAMÈTRES
+        // ===================================
+        const CONTACT_INFO = {
+            whatsapp: '33744230417', 
+            snapchat: 'lngoloko19',
+            snapchatLink: 'https://www.snapchat.com/add/lngoloko19?share_id=i6yyzYpgQP23C1fplVvmzQ&locale=fr_US',
+            telegram: 'VOTRE_USER_TELEGRAM',   
+            instagram: 'votre_compte_insta' 
+        };
+        
+        // --- IDENTIFIANTS SIMULÉS ---
+        const ADMIN_ID = 'JLOOK2000';
+        const ADMIN_PASS = 'LOIC2000';
+        const CLIENT_ID = 'client@demo.com';
+        const CLIENT_PASS = 'password123';
+
+        // --- NOUVEAU CLIENT ENREGISTRÉ (TEMPORAIRE) ---
+        let newClientEmail = null; 
+        let newClientPass = null; 
+        
+        // --- STATUT DE CONNEXION CLIENT (SIMULATION D'ACHAT VALIDÉ) ---
+        let isClientLoggedIn = false; // Vrai si un client est connecté
+        let hasPurchaseBeenValidated = false; // Vrai si un client a "payé"
+
+        // --- STATS SIMULÉES ADMIN & RÉELLES (Initiales) ---
+        let simulatedVisits = 25800;
+        let simulatedOrders = 185;
+        let simulatedRevenue = 11250;
+        
+        let activeUsers = 5; 
+        let whatsappJoins = 42;
+        let telegramJoins = 25;
+        let instagramJoins = 18;
+        let snapchatJoins = 12;
+
+        let intervalId = null; 
+        
+        // ===================================
+        // GESTION DES ÉLÉMENTS DU DOM
+        // ===================================
+        const navMenu = document.getElementById('nav-menu');
+        const mainContent = document.getElementById('main-content');
+        const adminDashboard = document.getElementById('admin-dashboard');
+        const loginOverlay = document.getElementById('login-overlay');
+        const navBar = document.getElementById('app-nav');
+        const shopNavLink = document.getElementById('shop-nav-link');
+        const cartNavLink = document.getElementById('cart-nav-link');
+        const authMessage = document.getElementById('auth-message');
+        const authSuccess = document.getElementById('auth-success');
+        const authSuccessMessage = document.getElementById('auth-success-message');
+        const userIdInput = document.getElementById('auth-id');
+        const passwordInput = document.getElementById('auth-password');
+        const loginTitle = document.querySelector('#login-card h3');
+        const loginButton = document.querySelector('#login-form button');
+        const directAccessLinks = document.getElementById('direct-access-links');
+
+
+        // ===================================
+        // LOGIQUE DE NAVIGATION DES VUES
+        // ===================================
+
+        function showMainContent() {
+            adminDashboard.classList.remove('content-visible');
+            adminDashboard.classList.add('content-hidden');
+
+            mainContent.classList.remove('content-hidden');
+            mainContent.classList.add('content-visible');
+
+            // Mettre à jour la navigation : Cacher le lien "Accès Boutique" et montrer le panier
+            shopNavLink.style.display = 'none';
+            cartNavLink.style.display = 'flex';
+            
+            // Mettre à jour l'affichage des liens d'accès direct
+            updateCartDisplay();
+        }
+
+        function showAdminDashboard() {
+            mainContent.classList.remove('content-visible');
+            mainContent.classList.add('content-hidden');
+            
+            adminDashboard.classList.remove('content-hidden');
+            adminDashboard.classList.add('content-visible');
+
+            // Mettre à jour la navigation : Montrer le lien "Accès Boutique" et cacher le panier
+            shopNavLink.style.display = 'block';
+            cartNavLink.style.display = 'none';
+        }
+
+        function logout() {
+            if (intervalId) {
+                clearInterval(intervalId);
+                intervalId = null;
+            }
+
+            mainContent.classList.remove('content-visible');
+            mainContent.classList.add('content-hidden');
+            adminDashboard.classList.remove('content-visible');
+            adminDashboard.classList.add('content-hidden');
+            navBar.classList.remove('content-visible');
+            navBar.classList.add('content-hidden');
+            
+            // Réinitialiser les états de connexion et d'achat
+            isClientLoggedIn = false;
+            hasPurchaseBeenValidated = false;
+            cart = []; // Vider le panier à la déconnexion
+
+            // Réinitialiser l'affichage
+            userIdInput.value = '';
+            passwordInput.value = '';
+            authMessage.style.display = 'none';
+            authSuccess.style.display = 'none';
+            loginTitle.textContent = 'Connexion';
+            loginButton.textContent = 'Se Connecter';
+            updateCartDisplay(); // Mettre à jour le panier après réinitialisation
+
+            loginOverlay.style.display = 'flex';
+        }
+
+        // ===================================
+        // LOGIQUE DU PANIER (SIMULATION)
+        // ===================================
+        let cart = [];
+
+        function updateCartDisplay() {
+            const summaryDiv = document.getElementById('cart-summary');
+            const counterSpan = document.getElementById('cart-counter');
+            const checkoutOptions = document.getElementById('checkout-options');
+
+            counterSpan.textContent = cart.length;
+
+            if (cart.length === 0) {
+                summaryDiv.innerHTML = '<p class="empty-cart-message">Votre panier est vide. Ajoutez des packs pour commander !</p>';
+                checkoutOptions.style.display = 'none';
+                cartNavLink.style.display = 'none'; 
+                directAccessLinks.classList.add('hidden'); // Cacher les liens d'accès direct
+                
+                // Si l'achat a été validé, garder les liens d'accès direct affichés même panier vide
+                if (hasPurchaseBeenValidated) {
+                    summaryDiv.innerHTML = '<p class="text-xl font-bold text-cyan-400">Commande validée. Voir les liens d\'accès ci-dessous.</p>';
+                    directAccessLinks.classList.remove('hidden');
+                }
+                
+                return;
+            }
+            
+            cartNavLink.style.display = 'flex';
+            directAccessLinks.classList.add('hidden'); // Cacher les liens d'accès direct si le panier a des articles (on est en phase d'achat)
+
+            let total = 0;
+            let summaryHTML = '<ul class="list-disc list-inside text-left mx-auto max-w-lg mb-6 text-xl">';
+            
+            const itemCounts = cart.reduce((acc, item) => {
+                acc[item.id] = (acc[item.id] || { count: 0, name: item.name, price: item.price });
+                acc[item.id].count++;
+                return acc;
+            }, {});
+
+            for (const id in itemCounts) {
+                const item = itemCounts[id];
+                const subtotal = item.count * item.price;
+                total += subtotal;
+                summaryHTML += `<li class="py-2 border-b border-gray-700">
+                                    ${item.name} (${item.count}x) : 
+                                    <span class="float-right font-bold text-cyan-400">${subtotal.toFixed(2)} €</span>
+                                </li>`;
+            }
+
+            summaryHTML += '</ul>';
+            summaryHTML += `<p class="text-4xl font-extrabold mt-6 text-white">Total : ${total.toFixed(2)} €</p>`;
+            summaryDiv.innerHTML = summaryHTML;
+            checkoutOptions.style.display = 'block';
+        }
+
+        function addToCart(id, name, price) {
+            if (!isClientLoggedIn) {
+                alert("Veuillez vous connecter pour ajouter des articles au panier.");
+                return;
+            }
+            cart.push({ id, name, price });
+            updateCartDisplay();
+            document.getElementById('cta-order').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function removeFromCart(id) {
+            if (hasPurchaseBeenValidated) {
+                alert("Votre commande est validée. Vous ne pouvez plus modifier le panier. Veuillez contacter le support pour toute annulation.");
+                return;
+            }
+            const index = cart.findIndex(item => item.id === id);
+            if (index !== -1) {
+                cart.splice(index, 1);
+                updateCartDisplay();
+            }
+        }
+
+        function checkoutCart(platform, contactId) {
+            if (cart.length === 0) {
+                alert("Votre panier est vide. Veuillez ajouter des articles pour commander.");
+                return;
+            }
+
+            const total = cart.reduce((sum, item) => sum + item.price, 0).toFixed(2);
+            let message = `Bonjour, je souhaite commander les articles suivants pour un total de ${total} € : \n`;
+            
+            const itemCounts = cart.reduce((acc, item) => {
+                acc[item.name] = (acc[item.name] || 0) + 1;
+                return acc;
+            }, {});
+
+            for (const name in itemCounts) {
+                message += `- ${name} x${itemCounts[name]}\n`;
+            }
+
+            message += `Mon identifiant de connexion est : ${userIdInput.value.trim() || 'Client Démos'}. Veuillez m'indiquer la marche à suivre pour le paiement par ${platform}.`;
+            
+            let finalLink = '#';
+
+            // Gérer le lien d'accès direct vers les plateformes (le vrai lien)
+            if (platform === 'whatsapp') {
+                finalLink = `https://wa.me/${contactId}?text=${encodeURIComponent(message)}`;
+            } else if (platform === 'snapchat') {
+                finalLink = CONTACT_INFO.snapchatLink; // Le lien d'ajout direct sur Snapchat
+            } else if (platform === 'telegram') {
+                finalLink = `https://t.me/${contactId}?text=${encodeURIComponent(message)}`;
+            } else if (platform === 'instagram') {
+                finalLink = `https://www.instagram.com/direct/new/?user_ids=${contactId}`; // Ce lien ne permet pas de pré-remplir le message facilement
+            }
+
+
+            // Étape de confirmation/redirection simulée
+            const confirmation = confirm(`Voulez-vous valider votre commande de ${total} € et ouvrir la discussion sur ${platform} ?`);
+
+            if (confirmation) {
+                // 1. Ouvrir le lien de discussion
+                window.open(finalLink, '_blank');
+
+                // 2. Marquer l'achat comme validé (simulation)
+                hasPurchaseBeenValidated = true;
+                
+                // 3. Vider le panier
+                cart = [];
+                
+                // 4. Mettre à jour les stats et l'affichage (montrer les liens d'accès direct)
+                simulatedOrders++;
+                simulatedRevenue += parseFloat(total);
+                
+                document.getElementById('stat-orders').textContent = simulatedOrders;
+                document.getElementById('stat-revenue').textContent = simulatedRevenue.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, " ") + ' €';
+
+                updateCartDisplay(); // Affichera le message de validation et les liens d'accès direct
+            }
+        }
+        
+        // ===================================
+        // GESTION DE L'AUTHENTIFICATION & INSCRIPTION
+        // ===================================
+        function handleAuth(mode) {
+            const userId = userIdInput.value.trim();
+            const password = passwordInput.value.trim();
+
+            authMessage.style.display = 'none';
+            authSuccess.style.display = 'none';
+
+            // --- LOGIQUE D'INSCRIPTION (MODE 'signup') ---
+            if (mode === 'signup') {
+                // (Logique d'inscription inchangée)
+                if (userId.length < 5 || password.length < 6 || !userId.includes('@') || !userId.includes('.')) {
+                    authMessage.textContent = 'Email et Mot de passe (min 6 caractères) requis pour l\'inscription.';
+                    authMessage.style.display = 'block';
+                    return;
+                }
+                
+                if (userId === ADMIN_ID || userId === CLIENT_ID || userId === newClientEmail) {
+                    authMessage.textContent = 'Cet identifiant est déjà utilisé ou réservé.';
+                    authMessage.style.display = 'block';
+                    return;
+                }
+
+                newClientEmail = userId;
+                newClientPass = password;
+
+                authSuccessMessage.textContent = `Compte client "${newClientEmail}" créé avec succès ! Veuillez vous connecter.`;
+                authSuccess.classList.remove('text-red-500', 'border-red-500');
+                authSuccess.classList.add('text-cyan-400', 'border-cyan-400');
+                authSuccess.style.display = 'block';
+
+                userIdInput.value = newClientEmail;
+                passwordInput.value = '';
+                loginTitle.textContent = 'Connexion';
+                loginButton.textContent = 'Se Connecter';
+
+                return;
+            }
+
+            // --- LOGIQUE DE CONNEXION (MODE 'login') ---
+            
+            let loginSuccessful = false;
+            let isAdmin = false;
+
+            // 1. Vérification Admin
+            if (userId === ADMIN_ID && password === ADMIN_PASS) {
+                loginSuccessful = true;
+                isAdmin = true;
+                authSuccessMessage.textContent = `Connexion Administrateur réussie pour ${userId} !`;
+                authSuccess.classList.remove('text-red-500', 'border-red-500');
+                authSuccess.classList.add('text-neon-violet', 'border-neon-violet');
+            } 
+            
+            // 2. Vérification Client SIMULÉ (Initial)
+            else if (userId === CLIENT_ID && password === CLIENT_PASS) {
+                loginSuccessful = true;
+                isClientLoggedIn = true;
+                authSuccessMessage.textContent = `Connexion Client réussie pour ${userId} !`;
+                authSuccess.classList.remove('text-red-500', 'border-red-500');
+                authSuccess.classList.add('text-cyan-400', 'border-cyan-400');
+            }
+            
+            // 3. Vérification NOUVEAU Client ENREGISTRÉ
+            else if (userId === newClientEmail && password === newClientPass) {
+                loginSuccessful = true;
+                isClientLoggedIn = true;
+                authSuccessMessage.textContent = `Connexion réussie pour ${userId} !`;
+                authSuccess.classList.remove('text-red-500', 'border-red-500');
+                authSuccess.classList.add('text-cyan-400', 'border-cyan-400');
+            }
+
+            if (loginSuccessful) {
+                authSuccess.style.display = 'block';
+
+                loginOverlay.style.display = 'none';
+                navBar.classList.remove('content-hidden');
+                navBar.classList.add('content-visible');
+                
+                if (isAdmin) {
+                    showAdminDashboard();
+                } else {
+                    showMainContent(); // Affiche la vue client
+                }
+                
+                startRealTimeUpdates();
+                
+            } else {
+                authMessage.textContent = 'Identifiant ou mot de passe incorrect.';
+                authMessage.style.display = 'block';
+            }
+        }
+        
+        // Gestion de l'activité en temps réel (Simulation) - Inchangée
+        function updateRealTimeActivity() {
+            activeUsers += Math.floor(Math.random() * 3) - 1; 
+            if (activeUsers < 2) activeUsers = 2; 
+            
+            const rand = Math.random();
+            if (rand < 0.25) { whatsappJoins++; }
+            else if (rand < 0.50) { telegramJoins++; }
+            else if (rand < 0.75) { instagramJoins++; }
+            else if (rand < 1.00) { snapchatJoins++; }
+
+            if (adminDashboard.classList.contains('content-visible')) {
+                document.getElementById('admin-active-users').textContent = activeUsers;
+                document.getElementById('admin-whatsapp-joins').textContent = whatsappJoins;
+                document.getElementById('admin-telegram-joins').textContent = telegramJoins;
+                document.getElementById('admin-instagram-joins').textContent = instagramJoins;
+                document.getElementById('admin-snapchat-joins').textContent = snapchatJoins;
+            }
+
+            if (mainContent.classList.contains('content-visible')) {
+                document.getElementById('client-active-users').textContent = activeUsers;
+                document.getElementById('client-social-joins').textContent = (whatsappJoins + telegramJoins + instagramJoins + snapchatJoins);
+            }
+        }
+        
+        function startRealTimeUpdates() {
+            if (!intervalId) {
+                intervalId = setInterval(updateRealTimeActivity, 3000); 
+            }
+        }
+
+        // Initialisation du panier au chargement
+        document.addEventListener('DOMContentLoaded', updateCartDisplay);
+    </script>
+</body>
+</html>
